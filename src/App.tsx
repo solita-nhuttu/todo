@@ -9,8 +9,8 @@ function App() {
 
   useEffect(() => {
     (async function () {
-      const { text } = await( await fetch(`/api/message`)).json();
-      setData(text);
+      const text = await( await fetch(`/api/message`))
+      setData(JSON.stringify(text));
     })();
   }); 
 
