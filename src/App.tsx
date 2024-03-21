@@ -13,7 +13,9 @@ function App() {
       setData(text);
     })();
   }); 
-  
+
+  console.log(data, "onko data")
+
   return (
     <>
     <div>{data} dataaaa</div>
