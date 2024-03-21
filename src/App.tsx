@@ -5,11 +5,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [data, setData] = useState('');
+  const [data, setData] = useState<Response | null>();
 
   useEffect(() => {
     (async function () {
-      const { text } = await( await fetch(`/api/message`)).json();
+      const text =  await fetch(`/api/message`)
       console.log(text, "tet")
       setData(text);
     })();
@@ -19,7 +19,7 @@ function App() {
 
   return (
     <>
-    <div>{data} dataaaa</div>
+    <div>{JSON.stringify(data)} dataaaa</div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
