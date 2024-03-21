@@ -6,12 +6,13 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [data, setData] = useState('');
+  const [x, setX] = useState()
 
   useEffect(() => {
     (async function () {
-      const text = (await fetch(`/api/message`))
-      console.log(text)
-      setData(JSON.stringify(text));
+      const { text } = await( await fetch(`/api/message`)).json();
+      console.log(text, "tet")
+      setData(text);
     })();
   }); 
 
